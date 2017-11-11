@@ -13,7 +13,7 @@ public class App {
 		l.add(50);
 		l.add(60);
 		
-		Map<Integer> m = new LazyMap<Integer>(l, new LazyMap.Predicate<Integer>() {
+		Map<Integer> m = new LazyMap<Integer>(l, new Map.Predicate<Integer>() {
 //			@Override
 			public Integer doIt(Integer stuff) {
 				return stuff + 1;
