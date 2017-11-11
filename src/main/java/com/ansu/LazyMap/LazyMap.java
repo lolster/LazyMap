@@ -3,6 +3,7 @@ package com.ansu.LazyMap;
 import java.util.List;
 
 public class LazyMap<T> extends Map<T> {
+	private static final long serialVersionUID = 1L;
 	private List<T> list;
 	private Predicate<T> p;
 	boolean[] dirtyBit;

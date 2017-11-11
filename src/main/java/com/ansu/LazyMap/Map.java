@@ -1,10 +1,12 @@
 package com.ansu.LazyMap;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public abstract class Map<T> implements Iterable<T> {
-	
+public abstract class Map<T> implements Iterable<T>, Serializable {
+	protected static final long serialVersionUID = 1L;
+
 	public abstract T get(int index);
 	
 	public abstract int size();
@@ -13,8 +15,10 @@ public abstract class Map<T> implements Iterable<T> {
 		return new MapIterator<T>(this);
 	}
 	
-	public static interface Predicate<E> {
-		public E doIt(E stuff);
+	public static abstract class Predicate<E> implements Serializable{
+		private static final long serialVersionUID = 1L;
+
+		public abstract E doIt(E stuff);
 	}
 	
 	public static class MapIterator<E> implements Iterator<E> {
