@@ -13,7 +13,11 @@ public class App {
 		l.add(50);
 		l.add(60);
 		
-		Map<Integer> m = new LazyMap<Integer>(l, new Map.Predicate<Integer>() {
+		// <Integer>getMapFactory is not needed, type can be inferred from 
+		// obvious return type (look at left side)
+		MapFactory<Integer> fact = MapFactory.<Integer>getMapFactory(MapFactoryType.LAZYMAP);
+		
+		Map<Integer> m = fact.createMap(l, new Map.Predicate<Integer>() {
 //			@Override
 			public Integer doIt(Integer stuff) {
 				return stuff + 1;
