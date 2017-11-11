@@ -1,0 +1,45 @@
+package com.ansu.LazyMap;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public abstract class Map<T> implements Iterable<T> {
+	
+	public abstract T get(int index);
+	
+	public abstract int size();
+	
+	public Iterator<T> iterator() {
+		return new MapIterator<T>(this);
+	}
+	
+	public static interface Predicate<E> {
+		public E doIt(E stuff);
+	}
+	
+	public static class MapIterator<E> implements Iterator<E> {
+		private int currIndex;
+		private Map<E> m;
+		
+		public MapIterator(Map<E> m) {
+			this.currIndex = 0;
+			this.m = m;
+		}
+ 		
+		public boolean hasNext() {
+			return this.currIndex < m.size();
+		}
+
+		public E next() throws NoSuchElementException {
+			E res = null;
+			if(this.hasNext()) {
+				res = m.get(currIndex);
+				++currIndex;
+			}
+			else {
+				throw new NoSuchElementException();
+			}
+			return res;
+		}
+	}
+}
