@@ -6,7 +6,7 @@ public class NormalMap<T> extends Map<T> {
 	private static final long serialVersionUID = 1L;
 	private List<T> list;
 	
-	public NormalMap(List<T> list, Predicate<T> p) {
+	protected NormalMap(List<T> list, Predicate<T> p) {
 		this.list = list;
 		for(int i = 0; i < this.list.size(); ++i) {
 			list.set(i, p.doIt(list.get(i)));

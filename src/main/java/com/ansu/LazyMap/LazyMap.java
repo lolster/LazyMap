@@ -8,7 +8,7 @@ public class LazyMap<T> extends Map<T> {
 	private Predicate<T> p;
 	boolean[] dirtyBit;
 	
-	public LazyMap(List<T> list, Predicate<T> p) {
+	protected LazyMap(List<T> list, Predicate<T> p) {
 		this.list = list;
 		this.p = p;
 		this.dirtyBit = new boolean[list.size()];
