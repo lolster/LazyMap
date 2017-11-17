@@ -6,7 +6,12 @@ import java.util.List;
 public class App {
 	public static void main( String[] args ) {
 		
-		// Normal Map
+		/*
+		 * Normal Map
+		 * 
+		 * create normMap factory from the MapFactory abstract factory
+		 * just a normal map
+		 */
 		MapFactory<String> normFact = MapFactory.getMapFactory(MapFactoryType.NORMALMAP);
 		
 		List<String> list1 = new ArrayList<String>();
@@ -28,7 +33,13 @@ public class App {
 		System.out.println(normMap.get(0));
 		
 		
-		// Lazy Map
+		/*
+		 * Lazy Map
+		 * 
+		 * create lazyMap factory from the MapFactory abstract factory
+		 * prints "computed" when map is actually evaluated
+		 * is not evaluated the next time 
+		 */
 		MapFactory<String> lazyFact = MapFactory.getMapFactory(MapFactoryType.LAZYMAP);
 		
 		List<String> list2 = new ArrayList<String>();
@@ -53,6 +64,10 @@ public class App {
 		
 		/*
 		 *  Map Persistence
+		 *  
+		 *  serialize and store as map1.ser
+		 *  read it back using a proxy since deserialization is costly
+		 *  rehydrating the persisted object is lazy 
 		 */
 		
 		// Store Map
