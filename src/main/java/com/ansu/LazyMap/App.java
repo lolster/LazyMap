@@ -5,52 +5,62 @@ import java.util.List;
 
 public class App {
 	public static void main( String[] args ) {
-		List<String> l = new ArrayList<String>();
-		l.add("bb");
-		l.add("aa");
 		
-		MapFactory<String> fact = MapFactory.getMapFactory(MapFactoryType.LAZYMAP);
+		// Normal Map
+		MapFactory<String> normFact = MapFactory.getMapFactory(MapFactoryType.NORMALMAP);
 		
-		Map<String> m = fact.createMap(l, new Map.Predicate<String>() {
-			private static final long serialVersionUID = 1766574542918940788L;
+		List<String> list1 = new ArrayList<String>();
+		list1.add("a");
+		list1.add("b");
+		list1.add("c");
+		list1.add("d");
+		list1.add("e");
+		
+		Map<String> normMap = normFact.createMap(list1, new Map.Predicate<String>() {
+			private static final long serialVersionUID = 1L;
 
+			@Override
 			public String doIt(String stuff) {
-				return stuff + "420";
+				return stuff + "_OOMD";
 			}
 		});
 		
-		// store map
-		MapStore.storeMap(m, "map1.ser");
-		// load same map
-		Map<String> m2 = MapStore.loadMap("map1.ser");
-
-		for(String e : m2) {
-			System.out.println("Iterating: " + e);
-		}
-
-		List<Integer> l2 = new ArrayList<Integer>();
-		l2.add(10);
-		l2.add(20);
-		l2.add(30);
-		l2.add(40);
-		l2.add(50);
-		l2.add(60);
+		System.out.println(normMap.get(0));
 		
-		Map<Integer> m22 = new LazyMap<Integer>(l2, new Map.Predicate<Integer>() {
-			private static final long serialVersionUID = 1766574542918940788L;
+		
+		// Lazy Map
+		MapFactory<String> lazyFact = MapFactory.getMapFactory(MapFactoryType.LAZYMAP);
+		
+		List<String> list2 = new ArrayList<String>();
+		list2.add("1");
+		list2.add("2");
+		list2.add("3");
+		list2.add("4");
+		list2.add("5");
+		
+		Map<String> lazyMap = lazyFact.createMap(list2, new Map.Predicate<String>() {
+			private static final long serialVersionUID = 1L;
 
-			public Integer doIt(Integer stuff) {
-				return stuff + 1;
+			@Override
+			public String doIt(String stuff) {
+				return stuff + "_OOMD";
 			}
 		});
+		
+		System.out.println(lazyMap.get(0));
+		
 
-		// store map
-		MapStore.storeMap(m22, "map1.ser");
-		// load same map
-		Map<Integer> m222 = MapStore.loadMap("map1.ser");
-
-		for(int e : m222) {
-			System.out.println("Iterating: " + e);
-		} 
+		
+		/*
+		 *  Map Persistence
+		 */
+		
+		// Store Map
+		MapStore.storeMap(lazyMap, "map1.ser");
+		
+		// Load same map
+		Map<String> storedLazyMap = MapStore.loadMap("map1.ser");
+		
+		System.out.println(storedLazyMap.get(0));
 	}
 }

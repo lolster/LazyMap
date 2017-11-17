@@ -36,11 +36,10 @@ public abstract class Map<T> implements Iterable<T>, Serializable {
 
 		public E next() throws NoSuchElementException {
 			E res = null;
-			if(this.hasNext()) {
+			if (this.hasNext()) {
 				res = m.get(currIndex);
 				++currIndex;
-			}
-			else {
+			} else {
 				throw new NoSuchElementException();
 			}
 			return res;

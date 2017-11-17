@@ -17,13 +17,15 @@ public class LazyMap<T> extends Map<T> {
 	@Override
 	public T get(int index) {
 		T res = null;
-		if(dirtyBit[index]) {
+		if (dirtyBit[index]) {
 			res = list.get(index);
-		}
-		else {
+		} else {
 			res = p.doIt(list.get(index));
 			list.set(index, res);
 			dirtyBit[index] = true;
+			
+			// just to show so
+			System.out.print("computed: ");
 		}
 		return res;
 	}
