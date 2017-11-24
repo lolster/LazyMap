@@ -3,15 +3,13 @@
  * 
  * Authors:
  * Sushrith Arkal  (01FB14ECS262)
- * Varun Bharadwaj (01FB14ECS278)
- * Varun Majunath  (01FB14ECS280)
- * Suhas Kashyap   (01FB14ECS255)
+ * Anush S Kumar   (01FB14ECS037)
  * 
  * Seventh Semester,
  * CSE Department,
  * PES University,
  * Bangalore, India
-*/
+ */
 
 package com.ansu.LazyMap;
 
