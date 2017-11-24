@@ -1,3 +1,18 @@
+/**
+ * Description: LazyMap implementation in Java
+ * 
+ * Authors:
+ * Sushrith Arkal  (01FB14ECS262)
+ * Varun Bharadwaj (01FB14ECS278)
+ * Varun Majunath  (01FB14ECS280)
+ * Suhas Kashyap   (01FB14ECS255)
+ * 
+ * Seventh Semester,
+ * CSE Department,
+ * PES University,
+ * Bangalore, India
+*/
+
 package com.ansu.LazyMap;
 
 import java.util.ArrayList;
@@ -31,8 +46,7 @@ public class App {
 		});
 		
 		System.out.println(normMap.get(0));
-		
-		
+
 		/*
 		 * Lazy Map
 		 * 
@@ -60,8 +74,6 @@ public class App {
 		
 		System.out.println(lazyMap.get(0));
 		
-
-		
 		/*
 		 *  Map Persistence
 		 *  
@@ -69,7 +81,6 @@ public class App {
 		 *  read it back using a proxy since deserialization is costly
 		 *  rehydrating the persisted object is lazy 
 		 */
-		
 		// Store Map
 		MapStore.storeMap(lazyMap, "map1.ser");
 		
