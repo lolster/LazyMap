@@ -23,9 +23,6 @@ public class LazyMap<T> extends Map<T> {
 			res = p.doIt(list.get(index));
 			list.set(index, res);
 			dirtyBit[index] = true;
-			
-			// just to show so
-			System.out.print("computed: ");
 		}
 		return res;
 	}
