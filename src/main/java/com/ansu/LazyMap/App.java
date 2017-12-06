@@ -39,7 +39,7 @@ public class App {
 
 			@Override
 			public String doIt(String stuff) {
-				return stuff + "_OOMD";
+				return stuff + "_DP";
 			}
 		});
 		
@@ -66,7 +66,7 @@ public class App {
 
 			@Override
 			public String doIt(String stuff) {
-				return stuff + "_OOMD";
+				return stuff + "_DP";
 			}
 		});
 		
